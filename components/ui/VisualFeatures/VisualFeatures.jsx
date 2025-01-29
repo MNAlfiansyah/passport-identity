@@ -78,9 +78,6 @@ const VisualFeatures = () => {
         });
     };
 
-    console.log(brigends);
-    
-
     const handleDownload = async () => {
         // Add validation check
         if (!passportData.name || !passportData.xTag || !passportData.discordTag) {
