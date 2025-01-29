@@ -17,7 +17,7 @@ const Features = () => {
             discordTag: "0x1ndigo",
             twitterTag: "@0x1ndigo",
             twitterUrl: "https://x.com/0x1ndigo",
-            role: "Marketer",
+            role: "Co-Founder",
             useTwitterAvatar: true
         },
         {
