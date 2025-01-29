@@ -5,11 +5,6 @@
   command = "npm run build"
   publish = ".next"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
 [functions]
   [functions.___netlify-server-handler]
     included_files = ["./public/**"]
