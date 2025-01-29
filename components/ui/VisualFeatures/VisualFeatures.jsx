@@ -405,7 +405,7 @@ const VisualFeatures = () => {
                                 <input 
                                     type="text" 
                                     name="status"
-                                    placeholder="Status"
+                                    placeholder="Mantra"
                                     value={passportData.status}
                                     onChange={handleInputChange}
                                     className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-gray-500"
