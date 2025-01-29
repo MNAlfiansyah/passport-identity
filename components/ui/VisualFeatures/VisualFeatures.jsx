@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import html2canvas from 'html2canvas'
 import { useState } from "react"
 import Image from 'next/image'
@@ -8,6 +8,93 @@ import localFont from '@next/font/local'
 
 const brigends = localFont({ src: '../../../public/fonts/Akira-Expanded.otf',  display: 'swap',
     variable: '--font-custom' })
+
+    const Modal = ({ isOpen, onClose, children }) => {
+        if (!isOpen) return null;
+      
+        return (
+          <AnimatePresence>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75"
+              onClick={onClose}
+            >
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.8, opacity: 0 }}
+                className="relative transform scale-2000"
+                onClick={e => e.stopPropagation()}
+              >
+                {children}
+              </motion.div>
+            </motion.div>
+          </AnimatePresence>
+        );
+      };
+      
+      const PassportCard = ({ template, config, data, onClick }) => {
+        return (
+          <motion.div 
+            id="passport-card"
+            className="relative w-[564.5px] h-[300px] cursor-pointer"
+            whileHover={{ 
+              scale: 1.05,
+              rotateY: 5,
+              rotateX: 5
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 300,
+              damping: 20
+            }}
+            onClick={onClick}
+          >
+            <img 
+              src={template}
+              alt="Card Background"
+              className="w-full h-full object-contain"
+            />
+            <div className="absolute inset-0">
+              <div className={`absolute ${config.photoSize} ${config.photoPosition}`}>
+                <img 
+                  src={`https://unavatar.io/x/${data.xTag.replace('@', '')}`}
+                  alt="Profile Picture" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="font-mono text-white">
+                <p className={`absolute whitespace-nowrap ${brigends.className}`} style={config.name}>
+                  <span className="ml-8"><b>{data.name}</b></span>
+                </p>
+                <p className="absolute whitespace-nowrap" style={{
+                  ...config.xTag,
+                  fontFamily: brigends.style.fontFamily,
+                }}>
+                  <span className="ml-8">{data.xTag}</span>
+                </p>
+                <p className="absolute whitespace-nowrap" style={{
+                  ...config.discord,
+                  fontFamily: brigends.style.fontFamily,
+                }}>
+                  <span className="ml-8">{data.discordTag}</span>
+                </p>
+              </div>
+              <p 
+                className="absolute text-white text-center uppercase w-full"
+                style={{
+                  ...config.status,
+                  fontFamily: brigends.style.fontFamily,
+                }}
+              >
+                {data.status || "Everything happens for a reason"}
+              </p>
+            </div>
+          </motion.div>
+        );
+      };
 
 const VisualFeatures = () => {
     const [passportData, setPassportData] = useState({
@@ -32,7 +119,7 @@ const VisualFeatures = () => {
             name: { top: '31%', left: '60%', fontSize: '11px', letterSpacing: '0.05em' },
             xTag: { top: '42.5%', left: '60%', fontSize: '11px', letterSpacing: '0.05em' },
             discord: { top: '51.5%', left: '60%', fontSize: '11px', letterSpacing: '0.05em' },
-            status: { bottom: '18%', left: '50%', transform: 'translateX(-50%)', fontSize: '12px', letterSpacing: '0.1em' },
+            status: { bottom: '17%', left: '50%', transform: 'translateX(-50%)', fontSize: '12px', letterSpacing: '0.1em' },
             photoSize: 'w-32 h-32',
             photoPosition: 'left-[11.5%] top-[23.1%]'
         },
@@ -40,7 +127,7 @@ const VisualFeatures = () => {
             name: { top: '31%', left: '60%', fontSize: '11px', letterSpacing: '0.05em' },
             xTag: { top: '42.5%', left: '60%', fontSize: '11px', letterSpacing: '0.05em' },
             discord: { top: '51.5%', left: '60%', fontSize: '11px', letterSpacing: '0.05em' },
-            status: { bottom: '18%', left: '50%', transform: 'translateX(-50%)', fontSize: '12px', letterSpacing: '0.1em' },
+            status: { bottom: '17%', left: '50%', transform: 'translateX(-50%)', fontSize: '12px', letterSpacing: '0.1em' },
             photoSize: 'w-32 h-32',
             photoPosition: 'left-[11.5%] top-[23.1%]'
         },
@@ -48,7 +135,7 @@ const VisualFeatures = () => {
             name: { top: '31%', left: '60%', fontSize: '11px', letterSpacing: '0.05em' },
             xTag: { top: '42.5%', left: '60%', fontSize: '11px', letterSpacing: '0.05em' },
             discord: { top: '51.5%', left: '60%', fontSize: '11px', letterSpacing: '0.05em' },
-            status: { bottom: '18%', left: '50%', transform: 'translateX(-50%)', fontSize: '12px', letterSpacing: '0.1em' },
+            status: { bottom: '17%', left: '50%', transform: 'translateX(-50%)', fontSize: '12px', letterSpacing: '0.1em' },
             photoSize: 'w-32 h-32',
             photoPosition: 'left-[11.5%] top-[23.1%]'
         },
@@ -56,7 +143,7 @@ const VisualFeatures = () => {
             name: { top: '31%', left: '60%', fontSize: '11px', letterSpacing: '0.05em' },
             xTag: { top: '42.5%', left: '60%', fontSize: '11px', letterSpacing: '0.05em' },
             discord: { top: '51.5%', left: '60%', fontSize: '11px', letterSpacing: '0.05em' },
-            status: { bottom: '18%', left: '50%', transform: 'translateX(-50%)', fontSize: '12px', letterSpacing: '0.1em' },
+            status: { bottom: '17%', left: '50%', transform: 'translateX(-50%)', fontSize: '12px', letterSpacing: '0.1em' },
             photoSize: 'w-32 h-32',
             photoPosition: 'left-[11.5%] top-[23.1%]'
         },
@@ -77,6 +164,12 @@ const VisualFeatures = () => {
             [e.target.name]: e.target.value
         });
     };
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+  
+    const handleCardClick = () => {
+        setIsModalOpen(true);
+      };
 
     const handleDownload = async () => {
         // Add validation check
@@ -333,14 +426,14 @@ const VisualFeatures = () => {
                                     <button 
                                         type="button"
                                         onClick={handleDownload}
-                                        className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                                        className="flex-1 px-4 py-2 bg-[#fbf002] text-black rounded-lg hover:bg-blue-700 transition-colors"
                                     >
                                         Download Passport
                                     </button>
                                     <button 
                                         type="button"
                                         onClick={handleShare}
-                                        className="px-4 py-2 bg-[#1DA1F2] text-white rounded-lg hover:bg-[#1a8cd8] transition-colors"
+                                        className="px-4 py-2 bg-[#e11749] text-white rounded-lg hover:bg-[#1a8cd8] transition-colors"
                                     >
                                         Share on X
                                     </button>
@@ -350,135 +443,27 @@ const VisualFeatures = () => {
                     </li>
 
                     {/* Passport Card */}
-                    <li className="flex-1 sm:flex sm:items-center">
-                        <motion.div 
-                            id="passport-card"
-                            className="relative w-[564.5px] h-[300px]"
-                            whileHover={{ 
-                                scale: 1.05,
-                                rotateY: 5,
-                                rotateX: 5
-                            }}
-                            transition={{
-                                type: "spring",
-                                stiffness: 300,
-                                damping: 20
-                            }}
-                        >
-                            {/* Background Card Image */}
-                            <img 
-                                src={templates[selectedTemplate]}
-                                alt="Card Background"
-                                fill
-                                priority
-                                sizes="564.5px"
-                                quality={100}
-                                className="object-contain"
-                                style={{ objectFit: 'contain' }}
-                            />
+                   
 
-                            {/* Overlay Content */}
-                            <div className="absolute inset-0 p-6">
-                                <div className="flex gap-6">
-                                    {/* Photo Section */}
-                                    <div className={`absolute ${templateConfigs[selectedTemplate].photoSize} ${templateConfigs[selectedTemplate].photoPosition}`}>
-                                        <img 
-                                            src={`https://unavatar.io/x/${passportData.xTag.replace('@', '')}`}
-                                            alt="Profile Picture" 
-                                            className="w-full h-full object-cover"
-                                        />
-                                    </div>
-
-                                   {/* Info Section */}
-                                    <div className={`font-mono text-white`}>
-                                        <p className={`absolute whitespace-nowrap ${brigends.className}`} style={{
-                                            ...templateConfigs[selectedTemplate].name,
-                                        }}>
-                                            <span className="ml-8"><b>{passportData.name}</b></span>
-                                        </p>
-                                        <p className="absolute whitespace-nowrap" style={{
-                                            ...templateConfigs[selectedTemplate].xTag,
-                                            fontFamily: brigends.style.fontFamily,
-                                        }}>
-                                            <span className="ml-8">{passportData?.xTag ? `${passportData.xTag}` : '' }</span>
-                                        </p>
-                                        <p className="absolute whitespace-nowrap" style={{
-                                            ...templateConfigs[selectedTemplate].discord,
-                                            fontFamily: brigends.style.fontFamily,
-                                        }}>
-                                            <span className="ml-8">{passportData.discordTag}</span>
-                                        </p>
-                                    </div>
-
-                                    {/* Status Message */}
-                                    <p 
-                                        className="absolute text-white text-center uppercase w-full"
-                                        style={{
-                                            ...templateConfigs[selectedTemplate].status,
-                                            fontFamily: brigends.style.fontFamily,
-                                        }}
-                                    >
-                                        {passportData.status || "Everything happens for a reason"}
-                                    </p>
-                                </div>
-                            </div>
-                        </motion.div>
-                    </li>
-                </ul>
-            </div>
-
-            {/* Add a hidden template div that will be used for capturing */}
-            <div style={{ display: 'none' }}>
-                <div 
-                    id="passport-template"
-                    className="relative w-[564.5px] h-[300px]"
-                >
-                    <img 
-                        src={templates[selectedTemplate]}
-                        alt="Card Background"
-                        fill
-                        priority
-                        className="object-cover"
-                    />
-                    {/* Copy the same overlay content structure from your passport-card */}
-                    <div className="absolute inset-0 p-6">
-                        <div className="flex gap-6">
-                            <div className={`absolute ${templateConfigs[selectedTemplate].photoSize} ${templateConfigs[selectedTemplate].photoPosition}`}>
-                                <img 
-                                    src={`https://unavatar.io/x/${passportData.xTag.replace('@', '')}`}
-                                    alt="Profile Picture" 
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
-                            <div className="font-mono text-white">
-                                <p className={`absolute whitespace-nowrap ${brigends.className}`} style={templateConfigs[selectedTemplate].name}>
-                                    <span className="ml-8"><b>{passportData.name}</b></span>
-                                </p>
-                                <p className="absolute whitespace-nowrap" style={{
-                                    ...templateConfigs[selectedTemplate].xTag,
-                                    fontFamily: brigends.style.fontFamily,
-                                }}>
-                                    <span className="ml-8">@{passportData.xTag}</span>
-                                </p>
-                                <p className="absolute whitespace-nowrap" style={{
-                                    ...templateConfigs[selectedTemplate].discord,
-                                    fontFamily: brigends.style.fontFamily,
-                                }}>
-                                    <span className="ml-8">{passportData.discordTag}</span>
-                                </p>
-                            </div>
-                            <p 
-                                className="absolute text-white text-center uppercase w-full"
-                                style={{
-                                    ...templateConfigs[selectedTemplate].status,
-                                    fontFamily: brigends.style.fontFamily,
-                                }}
-                            >
-                                {passportData.status || "Everything happens for a reason"}
-                            </p>
-                        </div>
+                    <div className="flex items-center justify-center">
+                        <PassportCard
+                        template={templates[selectedTemplate]}
+                        config={templateConfigs[selectedTemplate]}
+                        data={passportData}
+                        onClick={handleCardClick}
+                        />
                     </div>
-                </div>
+
+                    {/* Modal */}
+                    <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+                        <PassportCard
+                            template={templates[selectedTemplate]}
+                            config={templateConfigs[selectedTemplate]}
+                            data={passportData}
+                            onClick={() => setIsModalOpen(false)}
+                        />
+                    </Modal>
+                </ul>
             </div>
         </div>
     )
