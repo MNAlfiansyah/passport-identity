@@ -6,8 +6,8 @@ const Layout = ({ children }) => {
     return (
         <>
             <Head>
-                <title>Bosu Passport</title>
-                <meta name='description' content="Gain control of your business's growth with Mailgo's comprehensive marketing, automation, and email marketing platform." />
+                <title>Bosu Identity</title>
+                <meta name='description' content="Connect with passionate individuals in the FinalBosu community through your unique digital identity. Express yourself, showcase your personality, and become part of something extraordinary." />
                 <meta name='viewport' content='width=device-width, initial-scale=1' />
                 <link rel='icon' href='/logo-icon.png' />
             </Head>
