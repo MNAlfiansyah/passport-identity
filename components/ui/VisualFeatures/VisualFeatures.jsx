@@ -26,7 +26,7 @@ const VisualFeatures = () => {
             discord: { top: '51.5%', left: '60%', fontSize: '11px', letterSpacing: '0.05em' },
             status: { bottom: '17%', left: '50%', transform: 'translateX(-50%)', fontSize: '12px', letterSpacing: '0.1em' },
             photoSize: 'w-32 h-32',
-            photoPosition: 'left-[10.2%] top-[23.1%]'
+            photoPosition: 'left-[11.5%] top-[23.1%]'
         },
         template2: {
             name: { top: '31%', left: '60%', fontSize: '11px', letterSpacing: '0.05em' },
@@ -34,7 +34,7 @@ const VisualFeatures = () => {
             discord: { top: '51.5%', left: '60%', fontSize: '11px', letterSpacing: '0.05em' },
             status: { bottom: '18%', left: '50%', transform: 'translateX(-50%)', fontSize: '12px', letterSpacing: '0.1em' },
             photoSize: 'w-32 h-32',
-            photoPosition: 'left-[10.2%] top-[23.1%]'
+            photoPosition: 'left-[11.5%] top-[23.1%]'
         },
         template3: {    
             name: { top: '31%', left: '60%', fontSize: '11px', letterSpacing: '0.05em' },
@@ -42,7 +42,7 @@ const VisualFeatures = () => {
             discord: { top: '51.5%', left: '60%', fontSize: '11px', letterSpacing: '0.05em' },
             status: { bottom: '18%', left: '50%', transform: 'translateX(-50%)', fontSize: '12px', letterSpacing: '0.1em' },
             photoSize: 'w-32 h-32',
-            photoPosition: 'left-[10.2%] top-[23.1%]'
+            photoPosition: 'left-[11.5%] top-[23.1%]'
         },
         template4: {
             name: { top: '31%', left: '60%', fontSize: '11px', letterSpacing: '0.05em' },
@@ -50,7 +50,7 @@ const VisualFeatures = () => {
             discord: { top: '51.5%', left: '60%', fontSize: '11px', letterSpacing: '0.05em' },
             status: { bottom: '18%', left: '50%', transform: 'translateX(-50%)', fontSize: '12px', letterSpacing: '0.1em' },
             photoSize: 'w-32 h-32',
-            photoPosition: 'left-[10.2%] top-[23.1%]'
+            photoPosition: 'left-[11.5%] top-[23.1%]'
         },
         template5: {
             name: { top: '31%', left: '60%', fontSize: '11px', letterSpacing: '0.05em' },
@@ -58,7 +58,7 @@ const VisualFeatures = () => {
             discord: { top: '51.5%', left: '60%', fontSize: '11px', letterSpacing: '0.05em' },
             status: { bottom: '18%', left: '50%', transform: 'translateX(-50%)', fontSize: '12px', letterSpacing: '0.1em' },
             photoSize: 'w-32 h-32',
-            photoPosition: 'left-[10.2%] top-[23.1%]'
+            photoPosition: 'left-[11.5%] top-[23.1%]'
         },
     };
 
