@@ -26,7 +26,7 @@ const Features = () => {
             twitterUrl: "https://x.com/topahadzi",
             role: "Developer",
             useTwitterAvatar: false,
-            customImage: "/images/shiba.gif"
+            customImage: "https://bosu-identity.netlify.app/images/shiba.gif"
         },
         {
             discordTag: "dolpin7",
@@ -80,7 +80,7 @@ const Features = () => {
                                                     className="w-full h-full rounded-full object-cover"
                                                 />
                                             ) : (
-                                                <Image 
+                                                <img 
                                                     src={member.customImage}
                                                     alt={`${member.twitterTag} avatar`}
                                                     width={80}

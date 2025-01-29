@@ -63,11 +63,11 @@ const VisualFeatures = () => {
     };
 
     const templates = {
-        template1: '/templates/template1.png',
-        template2: '/templates/template2.png',
-        template3: '/templates/template3.png',
-        template4: '/templates/template4.png',
-        template5: '/templates/template5.png'
+        template1: 'https://bosu-identity.netlify.app/templates/template1.png',
+        template2: 'https://bosu-identity.netlify.app/templates/template2.png',
+        template3: 'https://bosu-identity.netlify.app/templates/template3.png',
+        template4: 'https://bosu-identity.netlify.app/templates/template4.png',
+        template5: 'https://bosu-identity.netlify.app/templates/template5.png'
     };
 
 
@@ -366,7 +366,7 @@ const VisualFeatures = () => {
                             }}
                         >
                             {/* Background Card Image */}
-                            <Image 
+                            <img 
                                 src={templates[selectedTemplate]}
                                 alt="Card Background"
                                 fill
@@ -433,7 +433,7 @@ const VisualFeatures = () => {
                     id="passport-template"
                     className="relative w-[564.5px] h-[300px]"
                 >
-                    <Image 
+                    <img 
                         src={templates[selectedTemplate]}
                         alt="Card Background"
                         fill
