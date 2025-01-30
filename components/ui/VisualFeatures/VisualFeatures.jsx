@@ -299,7 +299,7 @@ const VisualFeatures = () => {
             document.body.removeChild(link);
 
             // Construct tweet text
-            const text = `Check out my Bosu Identity Passport!\n\nName: ${passportData.name}\nX: ${passportData.xTag}\nDiscord: ${passportData.discordTag}\n`;
+            const text = `Check out my Bosu Identity Passport!\n\nName: ${passportData.name}\nX: ${passportData.xTag}\nDiscord: ${passportData.discordTag}\n\n @finalbosuX #BOSUIDENTITY #AGAINSTALLODDS\n`;
             const url = window.location.href;
             const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
 
